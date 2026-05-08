@@ -21,11 +21,11 @@ class Database
         }
     }
 
-    public function query($query)
+    public function query($query, $params = [])
     {
         try {
             $sth = $this->conn->prepare($query);
-            $sth->execute();
+            $sth->execute($params);
             return $sth;
         } catch (PDOException $e) {
             throw new Exception("Query failed: {$e->getMessage()}");

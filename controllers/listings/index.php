@@ -1,4 +1,12 @@
 <?php
 
-require_once dirname(__DIR__) . '/../helpers.php';
-require basePath('views/listings/index.view.php');
+$config = require basePath('config/db.php');
+
+$db = new Database($config);
+
+$listings = $db->query('SELECT * FROM listings LIMIT 6')->fetchAll();
+
+loadView('listings/index', [
+    'listings' => $listings
+]);
+
