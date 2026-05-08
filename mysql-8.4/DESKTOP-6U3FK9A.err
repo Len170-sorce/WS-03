@@ -1,0 +1,7 @@
+2026-04-16T15:52:32.567223Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2026-04-16T15:52:32.573713Z 0 [System] [MY-013169] [Server] C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysqld.exe (mysqld 8.4.3) initializing of server in progress as process 5116
+2026-04-16T15:52:32.616212Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2026-04-16T15:52:33.417491Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2026-04-16T15:52:34.374243Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: C:\laragon\bin\mysql\mysql-8.4.3-winx64\lib\private\.
+2026-04-16T15:52:35.135446Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2026-04-16T15:52:36.994262Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
