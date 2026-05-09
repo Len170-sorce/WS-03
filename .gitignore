@@ -1,2 +1,8 @@
 # MySQL data folder
 mysql-8.4/
+
+/vendor
+/node_modules
+/config/db.php
+.env
+.DS_Store
