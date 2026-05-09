@@ -9,10 +9,10 @@
             Back To Listings
         </a>
 
-        <div class="flex space-x-4 mr-4">
-            <a href="/edit" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded">Edit</a>
+        <div class="flex items-center space-x-4 mr-4">
+            <a href="/edit?id=<?= $listing->id ?>" class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded">Edit</a>
             <!-- Delete Form -->
-            <form method="POST">
+            <form method="POST" class="m-0 flex items-center">
                 <button type="submit" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded">Delete</button>
             </form>
             <!-- End Delete Form -->

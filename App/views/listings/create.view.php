@@ -1,128 +1,122 @@
 <?php loadPartial('head'); ?>
 <?php loadPartial('navbar'); ?>
-<section class="container mx-auto p-4 mt-8 mb-8 max-w-2xl">
-    <h2 class="text-4xl font-bold mb-8">Create Job Listing</h2>
 
-    <form method="POST" class="bg-white rounded-lg shadow-md p-8 border border-gray-700">
-        <!-- Job Title -->
-        <div class="mb-6">
-            <label for="title" class="block text-lg font-semibold mb-2">Job Title</label>
-            <input
-                type="text"
-                id="title"
-                name="title"
-                placeholder="e.g., Senior Software Engineer"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
-                required>
-        </div>
+<section class="flex justify-center items-center mt-20 mb-20">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-6">
+        <h2 class="text-4xl font-bold text-center mb-4">Create Job Listing</h2>
+        <form method="POST" action="/listings">
+            <h2 class="text-2xl font-bold text-center text-gray-500 mb-8">
+                Job Info
+            </h2>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Job Title"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
+            <div class="mb-4">
+                <textarea
+                    name="description"
+                    placeholder="Job Description"
+                    rows="5"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                ></textarea>
+            </div>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="salary"
+                    placeholder="Annual Salary"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="requirements"
+                    placeholder="Requirements"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="benefits"
+                    placeholder="Benefits"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
 
-        <!-- Company Name -->
-        <div class="mb-6">
-            <label for="company" class="block text-lg font-semibold mb-2">Company Name</label>
-            <input
-                type="text"
-                id="company"
-                name="company"
-                placeholder="Your Company"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
-                required>
-        </div>
+            <h2 class="text-2xl font-bold text-center text-gray-500 mb-8 mt-10">
+                Company Info & Location
+            </h2>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="company"
+                    placeholder="Company Name"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="address"
+                    placeholder="Address"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="city"
+                    placeholder="City"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="state"
+                    placeholder="State"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
+            <div class="mb-8">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address For Applications"
+                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                />
+            </div>
 
-        <!-- Description -->
-        <div class="mb-6">
-            <label for="description" class="block text-lg font-semibold mb-2">Job Description</label>
-            <textarea
-                id="description"
-                name="description"
-                rows="6"
-                placeholder="Describe the job responsibilities, requirements, and benefits..."
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
-                required></textarea>
-        </div>
-
-        <!-- Salary -->
-        <div class="mb-6">
-            <label for="salary" class="block text-lg font-semibold mb-2">Salary</label>
-            <input
-                type="text"
-                id="salary"
-                name="salary"
-                placeholder="e.g., $50,000 - $80,000"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
-                required>
-        </div>
-
-        <!-- Location -->
-        <div class="mb-6">
-            <label for="location" class="block text-lg font-semibold mb-2">Location</label>
-            <input
-                type="text"
-                id="location"
-                name="location"
-                placeholder="e.g., New York, NY"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
-                required>
-        </div>
-
-        <!-- Tags/Skills -->
-        <div class="mb-6">
-            <label for="tags" class="block text-lg font-semibold mb-2">Tags/Skills</label>
-            <input
-                type="text"
-                id="tags"
-                name="tags"
-                placeholder="e.g., PHP, Laravel, JavaScript (comma separated)"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
-                required>
-        </div>
-
-        <!-- Type of Employment -->
-        <div class="mb-6">
-            <label for="type" class="block text-lg font-semibold mb-2">Type of Employment</label>
-            <select
-                id="type"
-                name="type"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
-                required>
-                <option value="">Select Type</option>
-                <option value="Full-time">Full-time</option>
-                <option value="Part-time">Part-time</option>
-                <option value="Contract">Contract</option>
-                <option value="Freelance">Freelance</option>
-                <option value="Internship">Internship</option>
-            </select>
-        </div>
-
-        <!-- Work Type -->
-        <div class="mb-8">
-            <label for="work_type" class="block text-lg font-semibold mb-2">Work Type</label>
-            <select
-                id="work_type"
-                name="work_type"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
-                required>
-                <option value="">Select Work Type</option>
-                <option value="Local">Local</option>
-                <option value="Remote">Remote</option>
-                <option value="Hybrid">Hybrid</option>
-            </select>
-        </div>
-
-        <!-- Submit Button -->
-        <div class="flex gap-4">
             <button
                 type="submit"
-                class="flex-1 px-8 py-3 bg-blue-900 hover:bg-blue-800 text-white font-semibold rounded-lg transition-colors duration-300">
-                <i class="fa fa-check mr-2"></i>Post Listing
+                class="w-full bg-yellow-500 px-4 py-3 mb-4 rounded font-bold hover:bg-yellow-600 transition duration-300"
+                style="color: white !important;"
+            >
+                Post Listing
             </button>
             <a
                 href="/listings"
-                class="flex-1 px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-center transition-colors duration-300">
-                <i class="fa fa-times mr-2"></i>Cancel
+                class="block text-center w-full bg-red-500 px-4 py-3 rounded font-bold hover:bg-red-600 transition duration-300"
+                style="color: white !important;"
+            >
+                Cancel
             </a>
-        </div>
-    </form>
+        </form>
+    </div>
 </section>
-<?php
-require basePath('views/partials/footer.php');
-?>
+
+<?php loadPartial('footer'); ?>
