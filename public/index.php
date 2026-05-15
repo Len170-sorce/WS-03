@@ -14,7 +14,7 @@ $router = new Router();
 
 $routes = require basePath('routes.php');
 
-$requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$method = $_SERVER['REQUEST_METHOD'];
+$requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
 
-$router->route($requestUri, $method);
+
+$router->route($requestUri);

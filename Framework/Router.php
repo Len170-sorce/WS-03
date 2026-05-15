@@ -106,31 +106,50 @@ class Router
      * 
      */
 
-    public function route($uri, $method)
+    public function route($uri)
     {
-        $uri = parse_url($uri, PHP_URL_PATH);
-        $uri = rtrim($uri, '/');
-        if ($uri === '') {
-            $uri = '/';
-        }
+        $requestMethod = $_SERVER['REQUEST_METHOD'];
 
         foreach ($this->routes as $route) {
-            if (
-                $route['uri'] === $uri && $route['method'] === $method) {
-                //Extract controller and controller method    
-                $controller = 'App\\Controllers\\' . $route['controller'];
-                $controllerMethod = $route['controllerMethod'];
+            // Split the current URI into segments
+            $uriSegments = explode('/', trim($uri, '/'));
 
-                //Instantiate controller class
-                $controllerInstance = new $controller();
+            // Split the route URI into segments
+            $routeSegments = explode('/', trim($route['uri'], '/'));
 
-                $controllerInstance->$controllerMethod();
-                
-                return;
+            if (count($uriSegments) === count($routeSegments) && strtoupper($route['method']) === $requestMethod) {
+                $params = [];
+                $match = true;
+
+                for ($i = 0; $i < count($uriSegments); $i++) {
+                    // If the segments don't match and the route segment isn't a placeholder {param}
+                    if ($routeSegments[$i] !== $uriSegments[$i] && !preg_match('/\{(.+?)\}/', $routeSegments[$i])) {
+                        $match = false;
+                        break;
+                    }
+
+                    // Check for parameter and add to $params array
+                    if (preg_match('/\{(.+?)\}/', $routeSegments[$i], $matches)) {
+                        $params[$matches[1]] = $uriSegments[$i];
+                    }
+                }
+
+                if ($match) {
+                    // Extract controller and controller method
+                    $controller = 'App\\Controllers\\' . $route['controller'];
+                    $controllerMethod = $route['controllerMethod'];
+
+                    // Instantiate controller class and call method with params
+                    $controllerInstance = new $controller();
+                    $controllerInstance->$controllerMethod($params);
+
+                    return;
+                }
             }
         }
 
         ErrorController::notFound();
     }
+
 }
  
