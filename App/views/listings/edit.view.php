@@ -1,5 +1,5 @@
-<?php loadPartial('head'); ?>
-<?php loadPartial('navbar'); ?>
+<?= loadPartial('head'); ?>
+<?= loadPartial('navbar'); ?>
 
 <section class="flex justify-center items-center mt-20 mb-20">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-6">
@@ -120,7 +120,7 @@
                 Update
             </button>
             <a
-                href="/listings/<?= $listing->id ?>"
+                href="/listing/<?= $listing->id ?>"
                 class="block text-center w-full bg-red-500 px-4 py-3 rounded font-bold hover:bg-red-600 transition duration-300"
                 style="color: white !important;"
             >
@@ -130,4 +130,4 @@
     </div>
 </section>
 
-<?php loadPartial('footer'); ?>
+<?= loadPartial('footer'); ?>

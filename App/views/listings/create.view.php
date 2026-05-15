@@ -1,5 +1,5 @@
-<?php loadPartial('head'); ?>
-<?php loadPartial('navbar'); ?>
+<?= loadPartial('head'); ?>
+<?= loadPartial('navbar'); ?>
 
 <section class="flex justify-center items-center mt-20 mb-20">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-6">
@@ -106,7 +106,7 @@
                 class="w-full bg-yellow-500 px-4 py-3 mb-4 rounded font-bold hover:bg-yellow-600 transition duration-300"
                 style="color: white !important;"
             >
-                Post Listing
+                Save
             </button>
             <a
                 href="/listings"
@@ -119,4 +119,4 @@
     </div>
 </section>
 
-<?php loadPartial('footer'); ?>
+<?= loadPartial('footer'); ?>
