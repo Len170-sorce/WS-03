@@ -137,4 +137,22 @@ public function destroy($params) {
 
     redirect('/listings');  
 }
+public function edit($params){
+        $id = $params['id'] ?? '';
+
+        $params = [
+            'id' => $id
+        ];
+        $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', ['id' => $id])->fetch();
+
+        //Check if listing exist
+        if(!$listing){
+            ErrorController::notFound('Listing not found');
+            return;
+        }
+
+        loadView('listings/edit', [
+            'listing' => $listing
+        ]);
+    }
 }

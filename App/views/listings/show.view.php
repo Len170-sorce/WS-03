@@ -10,7 +10,7 @@
         </a>
 
         <div class="flex items-center space-x-4 mr-4">
-            <a href="/edit?id=<?= $listing->id ?>" class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded">Edit</a>
+            <a href="/listings/edit/<?= $listing->id ?>" class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded">Edit</a>
             <!-- Delete Form -->
             <form method="POST" class="m-0 flex items-center">
                 <input type="hidden" name="_method" value="DELETE">

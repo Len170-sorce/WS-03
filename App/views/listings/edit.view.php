@@ -4,18 +4,23 @@
 <section class="flex justify-center items-center mt-20 mb-20">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-6">
         <h2 class="text-4xl font-bold text-center mb-4">Edit Job Listing</h2>
-        <form method="POST" action="/listings/<?= $listing->id ?>">
-            <input type="hidden" name="_method" value="PUT">
+        <form method="POST" action="/listings">
             <h2 class="text-2xl font-bold text-center text-gray-500 mb-8">
                 Job Info
             </h2>
+            <?php if(isset($errors)) : ?>  
+                <?php foreach($errors as $error) : ?>
+                    <div class="message bg-red-100 my3">
+                        <?= $error ?>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
             <div class="mb-4">
                 <input
                     type="text"
                     name="title"
                     placeholder="Job Title"
-                    value="<?= $listing->title ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900" value="<?= $listing->title ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -24,15 +29,15 @@
                     placeholder="Job Description"
                     rows="5"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
-                ><?= $listing->description ?></textarea>
+                ><?= $listing->description ?? '' ?></textarea>
             </div>
             <div class="mb-4">
                 <input
                     type="text"
                     name="salary"
                     placeholder="Annual Salary"
-                    value="<?= $listing->salary ?>"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->salary ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -40,8 +45,8 @@
                     type="text"
                     name="requirements"
                     placeholder="Requirements"
-                    value="<?= $listing->requirements ?>"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->requirements ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -49,8 +54,18 @@
                     type="text"
                     name="benefits"
                     placeholder="Benefits"
-                    value="<?= $listing->benefits ?>"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->benefits ?? '' ?>" 
+                />
+            </div>
+
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="tags"
+                    placeholder="Tags"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->tags ?? '' ?>" 
                 />
             </div>
 
@@ -62,8 +77,8 @@
                     type="text"
                     name="company"
                     placeholder="Company Name"
-                    value="<?= $listing->company ?>"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->company ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -71,8 +86,8 @@
                     type="text"
                     name="address"
                     placeholder="Address"
-                    value="<?= $listing->address ?>"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->address ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -80,8 +95,8 @@
                     type="text"
                     name="city"
                     placeholder="City"
-                    value="<?= $listing->city ?>"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->city ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -89,8 +104,8 @@
                     type="text"
                     name="state"
                     placeholder="State"
-                    value="<?= $listing->state ?>"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->state ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -98,8 +113,8 @@
                     type="text"
                     name="phone"
                     placeholder="Phone"
-                    value="<?= $listing->phone ?>"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->phone ?? '' ?>" 
                 />
             </div>
             <div class="mb-8">
@@ -107,8 +122,8 @@
                     type="email"
                     name="email"
                     placeholder="Email Address For Applications"
-                    value="<?= $listing->email ?>"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing->email ?? '' ?>" 
                 />
             </div>
 
@@ -117,10 +132,10 @@
                 class="w-full bg-green-500 px-4 py-3 mb-4 rounded font-bold hover:bg-green-600 transition duration-300"
                 style="color: white !important;"
             >
-                Update
+                Save
             </button>
             <a
-                href="/listing/<?= $listing->id ?>"
+                href="/listings"
                 class="block text-center w-full bg-red-500 px-4 py-3 rounded font-bold hover:bg-red-600 transition duration-300"
                 style="color: white !important;"
             >
@@ -131,5 +146,3 @@
 </section>
 
 <?= loadPartial('bottom-banner'); ?>
-</body>
-</html>
