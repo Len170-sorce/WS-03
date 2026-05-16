@@ -10,4 +10,4 @@
     <link rel="stylesheet" href="/css/custom.css" />
     <title>Jobseek</title>
   </head>
-  <body class="bg-gray-100">
+  <body class="bg-gray-100 flex flex-col min-h-screen">
