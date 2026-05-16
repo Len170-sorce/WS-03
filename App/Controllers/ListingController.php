@@ -80,8 +80,18 @@ class ListingController {
                 'listing' => $newListingData
             ]);
         }else {
-            //Submitdata
-            echo "Success";
+            //Submit data
+            
+            $this->db->query('INSERT INTO listings
+            (title, description, salary, tags,
+            company, address, city, state, phone,
+            email, requirements, benefits, user_id)
+            VALUES (:title, :description, :salary,
+            :tags, :company, :address, :city,
+            :state, :phone, :email, :requirements,
+            :benefits, :user_id)', $newListingData);
+
+            $fields = [];
         }
         
     }
