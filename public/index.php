@@ -1,20 +1,20 @@
 <?php
-
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
+session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
 require '../helpers.php';
 
-
+// Initiate the router
 use Framework\Router;
 
+//Get the router instance
 $router = new Router();
 
+//Get routes
 $routes = require basePath('routes.php');
 
+//Get current URI and HTTP method
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
 
-
+//Route the request
 $router->route($requestUri);
