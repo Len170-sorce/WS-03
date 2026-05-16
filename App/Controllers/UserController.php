@@ -12,4 +12,25 @@ class UserController {
         $config = require basePath('config/db.php');
         $this->db = new Database($config);
     }
+    /**
+     * Show login page
+     * 
+     * @return void
+     * 
+     */
+    public function login() {
+        loadView('users/login');
+    }
+       
+    /**
+     * Show Create account page
+     * 
+     * @return void
+     * 
+     */
+    public function create() {
+        loadView('users/create');
+    }
+    
+    
 }
