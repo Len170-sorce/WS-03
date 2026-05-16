@@ -65,14 +65,24 @@ class ListingController {
 
         $requiredFields = ['title', 'description', 'email', 'city', 'state'];
 
-        $error = [];
+        $errors = [];
 
         foreach ($requiredFields as $field) {
             if(empty($newListingData[$field]) || !Validation::string($newListingData[$field])){
-                $error[] = ucfirst($field) . ' is required';
+                $errors[$field] = ucfirst($field) . ' is required';
             }
         }
 
-        inspectAndDie($error);
+        if(!empty($errors)) {
+            //Reload view with errors
+            loadView('listings/create', [
+                'errors' => $errors,
+                'listing' => $newListingData
+            ]);
+        }else {
+            //Submitdata
+            echo "Success";
+        }
+        
     }
 }

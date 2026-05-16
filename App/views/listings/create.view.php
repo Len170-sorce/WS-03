@@ -8,12 +8,19 @@
             <h2 class="text-2xl font-bold text-center text-gray-500 mb-8">
                 Job Info
             </h2>
+            <?php if(isset($errors)) : ?>  
+                <?php foreach($errors as $error) : ?>
+                    <div class="message bg-red-100 my3">
+                        <?= $error ?>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
             <div class="mb-4">
                 <input
                     type="text"
                     name="title"
                     placeholder="Job Title"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900" value="<?= $listing['title'] ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -21,15 +28,16 @@
                     name="description"
                     placeholder="Job Description"
                     rows="5"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
-                ></textarea>
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                ><?= $listing['description'] ?? '' ?></textarea>
             </div>
             <div class="mb-4">
                 <input
                     type="text"
                     name="salary"
                     placeholder="Annual Salary"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['salary'] ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -37,7 +45,8 @@
                     type="text"
                     name="requirements"
                     placeholder="Requirements"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['requirements'] ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -45,7 +54,8 @@
                     type="text"
                     name="benefits"
                     placeholder="Benefits"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['benefits'] ?? '' ?>" 
                 />
             </div>
 
@@ -57,7 +67,8 @@
                     type="text"
                     name="company"
                     placeholder="Company Name"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['company'] ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -65,7 +76,7 @@
                     type="text"
                     name="address"
                     placeholder="Address"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -73,7 +84,7 @@
                     type="text"
                     name="city"
                     placeholder="City"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -81,7 +92,7 @@
                     type="text"
                     name="state"
                     placeholder="State"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -89,7 +100,7 @@
                     type="text"
                     name="phone"
                     placeholder="Phone"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-8">
@@ -97,13 +108,13 @@
                     type="email"
                     name="email"
                     placeholder="Email Address For Applications"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
 
             <button
                 type="submit"
-                class="w-full bg-yellow-500 px-4 py-3 mb-4 rounded font-bold hover:bg-yellow-600 transition duration-300"
+                class="w-full bg-green-500 px-4 py-3 mb-4 rounded font-bold hover:bg-green-600 transition duration-300"
                 style="color: white !important;"
             >
                 Save
@@ -119,4 +130,6 @@
     </div>
 </section>
 
-<?= loadPartial('footer'); ?>
+<?= loadPartial('bottom-banner'); ?>
+</body>
+</html>

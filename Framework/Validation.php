@@ -14,7 +14,7 @@ class Validation{
      */
 
     public static function string($value, $min = 1, $max = INF) {
-        if(!is_string($value)) {
+        if(is_string($value)) {
             $value = trim($value);  
             $length = strlen($value);  
 

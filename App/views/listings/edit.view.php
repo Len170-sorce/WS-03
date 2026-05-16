@@ -15,7 +15,7 @@
                     name="title"
                     placeholder="Job Title"
                     value="<?= $listing->title ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -23,7 +23,7 @@
                     name="description"
                     placeholder="Job Description"
                     rows="5"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 ><?= $listing->description ?></textarea>
             </div>
             <div class="mb-4">
@@ -32,7 +32,7 @@
                     name="salary"
                     placeholder="Annual Salary"
                     value="<?= $listing->salary ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -41,7 +41,7 @@
                     name="requirements"
                     placeholder="Requirements"
                     value="<?= $listing->requirements ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -50,7 +50,7 @@
                     name="benefits"
                     placeholder="Benefits"
                     value="<?= $listing->benefits ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
 
@@ -63,7 +63,7 @@
                     name="company"
                     placeholder="Company Name"
                     value="<?= $listing->company ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -72,7 +72,7 @@
                     name="address"
                     placeholder="Address"
                     value="<?= $listing->address ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -81,7 +81,7 @@
                     name="city"
                     placeholder="City"
                     value="<?= $listing->city ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -90,7 +90,7 @@
                     name="state"
                     placeholder="State"
                     value="<?= $listing->state ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-4">
@@ -99,7 +99,7 @@
                     name="phone"
                     placeholder="Phone"
                     value="<?= $listing->phone ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
             <div class="mb-8">
@@ -108,13 +108,13 @@
                     name="email"
                     placeholder="Email Address For Applications"
                     value="<?= $listing->email ?>"
-                    class="w-full px-4 py-3 border rounded focus:outline-none"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
                 />
             </div>
 
             <button
                 type="submit"
-                class="w-full bg-yellow-500 px-4 py-3 mb-4 rounded font-bold hover:bg-yellow-600 transition duration-300"
+                class="w-full bg-green-500 px-4 py-3 mb-4 rounded font-bold hover:bg-green-600 transition duration-300"
                 style="color: white !important;"
             >
                 Update
@@ -130,4 +130,6 @@
     </div>
 </section>
 
-<?= loadPartial('footer'); ?>
+<?= loadPartial('bottom-banner'); ?>
+</body>
+</html>
