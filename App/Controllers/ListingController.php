@@ -63,7 +63,7 @@ class ListingController {
 
         $newListingData = array_map('sanitize', $newListingData);
 
-        $requiredFields = ['title', 'description', 'email', 'city', 'state'];
+        $requiredFields = ['title', 'description', 'salary', 'email', 'city', 'state'];
 
         $errors = [];
 
@@ -82,16 +82,37 @@ class ListingController {
         }else {
             //Submit data
             
-            $this->db->query('INSERT INTO listings
-            (title, description, salary, tags,
-            company, address, city, state, phone,
-            email, requirements, benefits, user_id)
-            VALUES (:title, :description, :salary,
-            :tags, :company, :address, :city,
-            :state, :phone, :email, :requirements,
-            :benefits, :user_id)', $newListingData);
+            //$this->db->query('INSERT INTO listings
+            //(title, description, salary, tags,
+            //company, address, city, state, phone,
+            //email, requirements, benefits, user_id)
+            //VALUES (:title, :description, :salary,
+            //:tags, :company, :address, :city,
+            //:state, :phone, :email, :requirements,
+            //:benefits, :user_id)', $newListingData);
 
-            $fields = [];
+
+            $fields = array_keys($newListingData);
+            $fields = implode(', ', $fields);
+
+            $values = [];
+
+            foreach($newListingData as $field => $value) {
+                // Convert empty string to null 
+                if($value === '') {
+                    $newListingData[$field] = null;   
+                }
+                
+                $values[] = ':' . $field;
+            }
+            $values = implode(', ', $values);
+
+            $query = "INSERT INTO listings ({$fields}) VALUES ({$values})";
+
+            $this->db->query($query, $newListingData);
+            
+            redirect("/listings");
+            
         }
         
     }

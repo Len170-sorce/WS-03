@@ -59,6 +59,16 @@
                 />
             </div>
 
+            <div class="mb-4">
+                <input
+                    type="text"
+                    name="tags"
+                    placeholder="Tags"
+                    class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['tags'] ?? '' ?>" 
+                />
+            </div>
+
             <h2 class="text-2xl font-bold text-center text-gray-500 mb-8 mt-10">
                 Company Info & Location
             </h2>
