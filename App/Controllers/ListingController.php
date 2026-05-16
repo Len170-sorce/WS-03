@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Framework\Database;
+use Framework\Validation;
 
 class ListingController {
 
@@ -17,7 +18,7 @@ class ListingController {
 
 
     public function index(){
-
+        
         $listings = $this->db->query('SELECT * FROM listings')->fetchAll();
 
         loadView('listings/index', [
@@ -43,5 +44,25 @@ class ListingController {
         }
 
         loadView('listings/show', ['listing' => $listing]);
+    }
+    /**
+     * Store data in database
+     * 
+     * @return void
+     */
+
+    public function store() {
+        
+        $allowedfields = [
+            'title', 'description', 'salary', 'tags', 'company', 'address', 'city', 'state', 'phone', 'email', 'requirements', 'benefits'
+        ];
+
+        $newListingData = array_intersect_key($_POST, array_flip($allowedfields));
+
+        $newListingData['user_id'] = 1;
+
+        
+
+        inspectAndDie($newListingData);
     }
 }

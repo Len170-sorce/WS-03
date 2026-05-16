@@ -43,7 +43,19 @@ function loadView($name, $data = [])
     }
 }
 
+function inspect($value) {
+    echo '<pre>';
+    var_dump($value);
+    echo '</pre>';
+}
+
 function formatSalary($salary)
 {
     return '$' . number_format($salary, 2);
 }
+
+function inspectAndDie($value) {
+    echo '<pre>';
+    die(var_dump($value));
+    echo '</pre>';
+} 
