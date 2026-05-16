@@ -206,9 +206,19 @@ public function edit($params){
             // Submit to DB 
             $updateFields = [];
 
-            foreach(array_keys($updatedValues) as $field) {
-                \inspectAndDie($field);
+            foreach(array_keys($updatedValues) as $field){
+                $updateFields[] = "{$field} = :{$field}";
             }
+            $updateFields = implode(', ', $updateFields);
+
+            $updateQuery = "UPDATE listings SET {$updateFields} WHERE id = :id";
+
+
+            $updatedValues['id'] = $id;
+            $this->db->query($updateQuery,  $updatedValues);
+            $_SESSION['success_message'] = 'Listing Updated';
+
+            redirect('/listings/' . $id);
         }
     }
 }
