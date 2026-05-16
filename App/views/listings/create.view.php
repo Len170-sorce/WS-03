@@ -77,6 +77,7 @@
                     name="address"
                     placeholder="Address"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['address'] ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -85,6 +86,7 @@
                     name="city"
                     placeholder="City"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['city'] ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -93,6 +95,7 @@
                     name="state"
                     placeholder="State"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['state'] ?? '' ?>" 
                 />
             </div>
             <div class="mb-4">
@@ -101,6 +104,7 @@
                     name="phone"
                     placeholder="Phone"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['phone'] ?? '' ?>" 
                 />
             </div>
             <div class="mb-8">
@@ -109,6 +113,7 @@
                     name="email"
                     placeholder="Email Address For Applications"
                     class="w-full px-4 py-3 border rounded focus:outline-none text-gray-900"
+                    value="<?= $listing['email'] ?? '' ?>" 
                 />
             </div>
 
