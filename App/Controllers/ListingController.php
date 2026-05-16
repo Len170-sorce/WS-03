@@ -155,4 +155,60 @@ public function edit($params){
             'listing' => $listing
         ]);
     }
+
+    /**
+     * Update listing 
+     * 
+     * @params array $params
+     * @return variant
+     */
+
+    public function update($params) {
+        $id = $params['id'] ?? '';
+
+        $params = [
+            'id' => $id
+        ];
+        $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', ['id' => $id])->fetch();
+
+        //Check if listing exist
+        if(!$listing){
+            ErrorController::notFound('Listing not found');
+            return;
+        }
+        $allowedfields = [
+            'title', 'description', 'salary', 'tags', 'company', 'address', 'city', 'state', 'phone', 'email', 'requirements', 'benefits'
+        ];
+
+        $updatedValues = [];
+        
+        $updatedValues = array_intersect_key($_POST, array_flip($allowedfields));
+
+        $updatedValues = array_map('sanitize', $updatedValues); 
+
+        $requiredFields = ['title', 'description', 'salary', 'email', 'city', 'state'];
+
+        $errors = [];
+
+        foreach ($requiredFields as $field) {
+            if(empty($updatedValues[$field]) || !Validation::string($updatedValues[$field]))
+                {
+                $errors[$field] = ucfirst($field) . ' is required';
+            }
+        }
+        if(!empty($errors)) {
+            loadView('listings/edit', [
+                'listing' => $listing,
+                'errors' => $errors
+            ]);
+            exit;
+        } else {
+            // Submit to DB 
+            $updateFields = [];
+
+            foreach(array_keys($updatedValues) as $field) {
+                \inspectAndDie($field);
+            }
+        }
+    }
 }

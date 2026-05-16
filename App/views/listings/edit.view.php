@@ -4,7 +4,8 @@
 <section class="flex justify-center items-center mt-20 mb-20">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl mx-6">
         <h2 class="text-4xl font-bold text-center mb-4">Edit Job Listing</h2>
-        <form method="POST" action="/listings">
+        <form method="POST" action="/listings/<?= $listing->id ?? '' ?>">
+            <input type="hidden" name="_method" value="PUT">
             <h2 class="text-2xl font-bold text-center text-gray-500 mb-8">
                 Job Info
             </h2>
@@ -135,7 +136,7 @@
                 Save
             </button>
             <a
-                href="/listings"
+                href="/listings/<?= $listing->id ?? '' ?>"
                 class="block text-center w-full bg-red-500 px-4 py-3 rounded font-bold hover:bg-red-600 transition duration-300"
                 style="color: white !important;"
             >
