@@ -102,8 +102,36 @@ class ListingController {
             $this->db->query($query, $newListingData);
             
             redirect("/listings");
+
+
+            
             
         }
         
     }
+/**
+ * Delete a listing
+ * 
+ * @param array $params
+ * @return void
+ */
+
+public function destroy($params) {
+    $id = $params['id'];
+    
+    $params = [
+        'id' => $id
+    ];
+
+    $listings = $this->db->query('SELECT * FROM listings WHERE id = :id', $params)->fetch();
+
+    if (!$listings) {
+        ErrorController::notFound('Listing not found');
+        return;
+    }
+
+    $this->db->query('DELETE FROM listings WHERE id = :id', $params);
+
+    redirect('/listings');  
+}
 }
