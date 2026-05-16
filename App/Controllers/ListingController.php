@@ -61,7 +61,7 @@ class ListingController {
 
         $newListingData['user_id'] = 1;
 
-        
+        $newListingData = array_map('sanitize', $newListingData);
 
         inspectAndDie($newListingData);
     }
