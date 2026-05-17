@@ -13,12 +13,12 @@ class Authorization {
      * @return bool 
      */
 
-    public function isOwner($resurceId){
+    public static function isOwner($resourceId){
         $sessionUser = Session::get('user');
 
         if($sessionUser !== null && isset ($sessionUser['id'])){
             $sessionUser = (int) $sessionUser['id'];
-            return $sessionUser === $resurceId;
+            return $sessionUser === $resourceId;
         }
 
         return false;
