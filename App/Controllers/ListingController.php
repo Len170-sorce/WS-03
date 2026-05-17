@@ -102,7 +102,7 @@ class ListingController {
             $query = "INSERT INTO listings ({$fields}) VALUES ({$values})";
 
             $this->db->query($query, $newListingData);
-            
+
             Session::setFlashMessage('success_message', 'Listing created successfully');
             
             redirect("/listings");
@@ -223,7 +223,8 @@ public function edit($params){
 
             $updatedValues['id'] = $id;
             $this->db->query($updateQuery,  $updatedValues);
-            $_SESSION['success_message'] = 'Listing Updated';
+
+           Session::setFlashMessage('success_message', 'Listing updated successfully');
 
             redirect('/listings/' . $id);
         }
