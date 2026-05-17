@@ -11,6 +11,7 @@
             <i class="fa fa-arrow-alt-circle-left"></i>
             Back To Listings
         </a>
+        <?php if(Framework\Authorization::isOwner($listing->user_id)) :?>
 
         <div class="flex items-center space-x-4 mr-4">
             <a href="/listings/edit/<?= $listing->id ?>" class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded">Edit</a>
@@ -21,6 +22,7 @@
             </form>
             <!-- End Delete Form -->
         </div>
+        <?php endif; ?>
         </div>
     </div>
 

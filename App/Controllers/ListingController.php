@@ -153,9 +153,15 @@ public function edit($params){
         $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', ['id' => $id])->fetch();
 
         //Check if listing exist
-        if(!$listing){
+        if (!$listing) {
             ErrorController::notFound('Listing not found');
             return;
+        }
+
+        //Authorization
+        if(!Authorization::isOwner($listing->user_id)){
+            Session::setFlashMessage('error_message', 'You are not authorized to update this listing');
+            return redirect('/listings/' . $listing->id);  
         }
 
         loadView('listings/edit', [
@@ -183,6 +189,13 @@ public function edit($params){
             ErrorController::notFound('Listing not found');
             return;
         }
+
+        //Authorization
+        if(!Authorization::isOwner($listing->user_id)){
+            Session::setFlashMessage('error_message', 'You are not authorized to update this listing');
+            return redirect('/listings/' . $listing->id);  
+        }
+        
         $allowedfields = [
             'title', 'description', 'salary', 'tags', 'company', 'address', 'city', 'state', 'phone', 'email', 'requirements', 'benefits'
         ];
@@ -228,5 +241,31 @@ public function edit($params){
 
             redirect('/listings/' . $id);
         }
+    }
+    /**
+     * Search listings by keyword/location
+     * 
+     * @return void 
+     */
+    public function search() {
+        $keywords = isset($_GET['keywords']) ? trim($_GET['keywords']) : '';
+        $location = isset($_GET['location']) ? trim($_GET['location']) : '';
+
+        $query="SELECT * FROM listings WHERE (title LIKE :keywords OR description LIKE :keywords OR tags LIKE :keywords OR company LIKE :keywords) AND (city LIKE :location OR state LIKE :location)";
+
+        $params = [
+            'keywords' => "%{$keywords}%",
+            'location' => "%{$location}%",
+            'tags' => "%{$keywords}%", 
+            'company' => "%{$keywords}%"
+        ];
+
+        $listings = $this->db->query($query, $params)->fetchAll();
+
+        loadView('listings/index', [
+            'listings' => $listings,
+            'keywords' => $keywords,
+            'location' => $location
+        ]);
     }
 }
