@@ -127,7 +127,7 @@ class UserController {
         Session::clear('user');
 
         $params = session_get_cookie_params();
-        sercookie('PHPSESSID', '', time() - 86400, $params['path'], $params['domain']);
+        setcookie('PHPSESSID', '', time() - 86400, $params['path'], $params['domain']);
         
         redirect('/');
     }
