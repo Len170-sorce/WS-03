@@ -118,5 +118,17 @@ class UserController {
         \redirect('/auth/login');
         
     }
+    /**
+     * Logout a user and kill session
+     * @return void
+     */
+    public function logout() {
+        Session::clear('user');
+
+        $params = session_get_cookie_params();
+        sercookie('PHPSESSID', '', time() - 86400, $params['path'], $params['domain']);
+        
+        redirect('/');
+    }
 
 }
