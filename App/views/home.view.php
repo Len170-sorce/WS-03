@@ -3,7 +3,6 @@
 <?= loadPartial('showcase-search'); ?>
 <?= loadPartial('top-banner'); ?>
 
-<!-- Job Listings -->
 <section>
     <div class="container mx-auto p-4 mt-4">
         <div class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">Recent Jobs</div>
@@ -37,10 +36,13 @@
             <?php endforeach; ?>
         </div>
 
-            <a href="/listings" class="block text-xl text-center">
-                <i class="fa fa-arrow-alt-circle-right"></i>
-                Show All Jobs
+        <div class="flex justify-center mt-4 mb-6">
+            <a href="/listings"
+                class="bg-blue-700 hover:bg-blue-600 text-white font-bold px-8 py-3 rounded-full text-sm transition duration-300 no-underline"
+                style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                Show All Jobs &nbsp;<i class="fa fa-arrow-right"></i>
             </a>
+        </div>
 </section>
 
 <?= loadPartial('bottom-banner'); ?>

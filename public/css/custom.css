@@ -1,7 +1,7 @@
 /* ============================================================
    JOBSEEK — CUSTOM STYLESHEET
-   Pangalan ng Student: ______________________________
-   Theme Name:          ______________________________ // Anong style would best describe this stylesheet
+   Pangalan ng Student: Mark Lennard L. Torres
+   Theme Name:          Sharp Dark Blue Professional
    ============================================================ */
 
 /* --- Google Fonts Import (optional) ---
@@ -24,19 +24,28 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header:       #51E2F5;   /* Header at navigation bar */
-  --color-accent:       #FFA8B8;   /* "Post a Job" button at mga highlight */
-  --color-page-bg:      #9DF3EF;   /* Background ng buong page */
-  --color-card-bg:      #FFFFFF;   /* Background ng mga card/box */
-  --color-heading:      #A28089;   /* Kulay ng mga title at heading */
-  --color-body-text:    #A28089;   /* Regular na body text */
-  --color-link:         #A28089;   /* Mga clickable na links */
-  --color-tag-bg:       #9DF3EF;   /* Background ng mga tag/badge */
-  --color-tag-text:     #A28089;   /* Text ng mga tag/badge */
-  --color-footer:       #51E2F5;   /* Footer background */
-  --showcase-overlay:   rgba(81, 226, 245, 0.25); /* Hero banner overlay
-                                               0.0 = transparent
-                                               0.9 = halos itim */
+  --color-header: #111827;
+  /* Header at navigation bar — dark navy    */
+  --color-accent: #1d4ed8;
+  /* "Post a Job" button — blue-700          */
+  --color-page-bg: #0b1120;
+  /* Background ng buong page — deep navy    */
+  --color-card-bg: #1a2540;
+  /* Background ng mga card/box — bg-surface */
+  --color-heading: #f1f5f9;
+  /* Kulay ng mga title at heading — light   */
+  --color-body-text: #94a3b8;
+  /* Regular na body text — slate-400        */
+  --color-link: #60a5fa;
+  /* Mga clickable na links — blue-bright    */
+  --color-tag-bg: #1a2540;
+  /* Background ng mga tag/badge             */
+  --color-tag-text: #93c5fd;
+  /* Text ng mga tag/badge — blue-pale       */
+  --color-footer: #111827;
+  /* Footer background — dark navy           */
+  --showcase-overlay: rgba(11, 17, 32, 0.80);
+  /* Hero banner overlay — dark navy tint  */
 }
 
 
@@ -55,8 +64,10 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --font-heading: 'Georgia', serif;      /* Para sa mga title at heading */
-  --font-body:    'Arial', sans-serif;   /* Para sa regular na text */
+  --font-heading: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  /* Para sa mga title at heading */
+  --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  /* Para sa regular na text */
 }
 
 
@@ -77,8 +88,8 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --border-radius: 8px;
-  --card-shadow:   0 2px 8px rgba(0, 0, 0, 0.08);
+  --border-radius: 6px;
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.40);
 }
 
 
@@ -95,7 +106,12 @@ body {
   color: var(--color-body-text) !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading) !important;
   color: var(--color-heading) !important;
 }

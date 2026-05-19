@@ -1,9 +1,8 @@
-<!-- Showcase -->
 <section
     class="showcase relative bg-cover bg-center bg-no-repeat h-72 flex items-center">
     <div class="overlay"></div>
     <div class="container mx-auto text-center z-10">
-        <h2 class="text-4xl text-white font-bold mb-4">Find Your Dream Job</h2>
+        <h2 class="text-4xl text-blue-300 font-bold mb-4">Where Ambition Meets Opportunity</h2>
         <form method="GET" action="/listings/search" class="mb-4 block mx-5 md:mx-auto">
             <input
                 type="text"
